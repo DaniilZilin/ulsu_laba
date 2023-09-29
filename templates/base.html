@@ -1,0 +1,93 @@
+{% load static %}
+{% get_static_prefix as STATIC_URL %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="{% static 'css/MainPageStyles.css' %}" type="text/css" />
+    <link rel="stylesheet" href="{% static 'css/bootstrap.css' %}" type="text/css">
+    <meta charset="UTF-8">
+    <title>Сайт Губернатора области</title>
+    <link rel="icon" href="/static/img/gerb_uo_2%201.png">
+    <script src="{{STATIC_URL}}scripts/script.js" type="text/javascript"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+</head>
+<body>
+<div>
+  <Header class="rectangle">
+    <div style="display: flex;">
+      <img class="logoOfSite" src="/static/img/ulyanovsk_logo.png">
+      <div class="nameOfSite">Интернет-приёмная Губернатора Ульяновской области</div>
+      <div class="rightSmallContainerFooter">
+        <div class="visuallyImparedContainer">
+          <img class="comparedVisibilityImage" src="/static/img/Vector.png">
+          <div class="comparedVisionText">Версия для слабовидящих</div>
+        </div>
+        <div class="callUsContainer">
+          <div class="callUs">позвони нам</div>
+          <div class="callUsNumber"><a href="tel:+78422412090">8(8422)41 20 90</a></div>
+        </div>
+      </div>
+    </div>
+    <div class="menuList">
+      <div class="firstMenuHalf">
+        <div class="btn-secondary menuListButton">Губернатор области</div>
+        <div class="btn-secondary menuListButton">Обращения граждан (приёмная)</div>
+        <div class="btn-secondary menuListButton">Контакты (телефоны и адреса)</div>
+        <div class="btn-secondary menuListButton">Объявления и вакансии</div>
+      </div>
+      <div class="secondMenuHalf">
+        <div class="btn-secondary menuListButton">Правительство  (органы власти)</div>
+        <div class="btn-secondary menuListButton">Инвестиции (для инвесторов)</div>
+        <div class="btn-secondary menuListButton">Данные об области</div>
+        <div class="btn-secondary menuListButton">Органы власти</div>
+      </div>
+    </div>
+  </Header>
+  <div class="notificationBar">
+    <div class="dearViewers">Уважаемые пользователи интернет-приёмной</div>
+    <div class="mainNotification">Пожалуйста, прежде чем направить в интернет-приемную обращение по
+        введенным на территории Ульяновской области ограничительным мерам в связи с распространением
+        новой коронавирусной инфекцией (COVID-19), внимательно ознакомьтесь с информацией в разделе СТОП КОРОНАВИРУС
+    </div>
+  </div>
+    {% block content %}
+    {% endblock %}
+  <Footer class="footer">
+      <div style="margin-right: 65px;">
+        <div class="footerTitle">Правительство Ульяновской области</div>
+        <img class="gerb_ul" src="/static/img/gerb_uo_2%201.png">
+      </div>
+      <div class="footerTextContainer">
+        <div class="smallColumnContainer">
+          <div>Пресс-центр</div>
+          <ul>
+            <li class="liItem">События</li>
+            <li class="liItem">Новости</li>
+            <li class="liItem">Анонсы</li>
+            <li class="liItem">Контакты пресс-служб</li>
+          </ul>
+        </div>
+        <div class="smallColumnContainer">
+          <div>Пресс-центр</div>
+          <ul>
+            <li class="liItem">События</li>
+            <li class="liItem">Новости</li>
+            <li class="liItem">Анонсы</li>
+            <li class="liItem">Контакты пресс-служб</li>
+          </ul>
+        </div>
+        <div class="smallColumnContainer">
+          <div class="columnName">Пресс-центр</div>
+          <ul>
+            <li class="liItem">События</li>
+            <li class="liItem">Новости</li>
+            <li class="liItem">Анонсы</li>
+            <li class="liItem">Контакты пресс-служб</li>
+          </ul>
+        </div>
+      </div>
+  </Footer>
+</div>
+</body>
+</html>

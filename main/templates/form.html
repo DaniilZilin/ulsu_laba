@@ -1,0 +1,131 @@
+{% extends 'base.html' %}
+
+{% load widget_tweaks %}
+
+{% block content %}
+<Main class="mainContent">
+  <p class="nameOfMainContent">Заполните форму для обращения к Губернатору Ульяновской области (Алексей Русских)</p>
+  <form style="margin: 50px;" method="post" action="{% url 'feedback' %}" id="myForm">
+    {% csrf_token %}
+
+    <div class="form-group">
+        {% if form.errors.addressee %}
+            <div style="margin-top: 10px; margin-bottom: 10px;" class="alert alert-danger">
+        {% endif %}
+            <div style="margin-bottom: 8px;">Выберите адресата:</div>
+        <div class="fieldFormParams">
+            {% render_field form.addressee class="form-control" %}
+        </div>
+        {% if form.errors.addressee %}
+            <ul style="color: red;">
+                <li>Пустое поле</li>
+            </ul>
+              </div>
+        {% endif %}
+    </div>
+
+    <div class="form-group">
+        {% if form.errors.name %}
+            <div style="margin-top: 10px; margin-bottom: 10px;" class="alert alert-danger">
+        {% endif %}
+          <div>Ваше полное ФИО:</div>
+          <div class="fieldFormParams">
+              {% render_field form.name class="form-control" %}
+          </div>
+            {% if form.errors.name %}
+            <ul style="color: red;">
+                <li>Пустое поле</li>
+            </ul>
+          </div>
+      {% endif %}
+    </div>
+
+    <div class="form-group">
+      {% if form.errors.phone_number %}
+        <div style="margin-top: 10px; margin-bottom: 10px;" class="alert alert-danger">
+      {% endif %}
+      <div>Введите номер телефона:</div>
+      <div class="fieldFormParams">
+        {% render_field form.phone_number class="form-control" %}
+      </div>
+      {% if form.errors.phone_number %}
+        <ul style="color: red;">
+            <li>Введён неверный номер</li>
+        </ul>
+          </div>
+      {% endif %}
+    </div>
+
+    <div class="form-group">
+      {% if form.errors.email %}
+        <div style="margin-top: 10px; margin-bottom: 10px;" class="alert alert-danger">
+      {% endif %}
+      <div>Ваш Email:</div>
+      <div class="fieldFormParams">
+          {% render_field form.email class="form-control" %}
+      </div>
+          {% if form.errors.email %}
+        <ul style="color: red;">
+            <li>Пустое поле</li>
+        </ul>
+          </div>
+      {% endif %}
+    </div>
+
+
+    <div class="form-group">
+      {% if form.errors.question %}
+        <div style="margin-top: 10px; margin-bottom: 10px;" class="alert alert-danger">
+      {% endif %}
+      <div>Тема вопроса:</div>
+      <div class="fieldFormParams">
+          {% render_field form.question class="form-control" %}
+      </div>
+        {% if form.errors.question %}
+        <ul style="color: red;">
+            <li>Пустое поле</li>
+        </ul>
+          </div>
+        {% endif %}
+    </div>
+
+    <div class="form-group">
+          {% if form.errors.text_of_question %}
+        <div style="margin-top: 10px; margin-bottom: 10px;" class="alert alert-danger">
+      {% endif %}
+      <div>Текст вопроса:</div>
+      <div class="fieldFormParams">
+          {% render_field form.text_of_question class="form-control" %}
+      </div>
+        {% if form.errors.text_of_question %}
+        <ul style="color: red;">
+            <li>Пустое поле</li>
+        </ul>
+          </div>
+        {% endif %}
+    </div>
+
+      <button id="submitButton" type="submit" class="btn-primary blueButton" style="width: 85px;">Отправить</button>
+
+      <div class="modal" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="exampleModalLabel">Окно валидации</h5>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body">
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary close" data-dismiss="modal">Закрыть</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+  </form>
+</Main>
+
+{% endblock %}

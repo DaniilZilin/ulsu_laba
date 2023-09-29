@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<Main class="mainContent">
+    <p class="nameOfMainContent">Список госслужащих, являющихся членами Правительства Ульяновской области</p>
+    <table id="testTable" class="table-bordered tableParams" cellpadding="10px">
+      <tr class="thead tbody">
+        <th>#</th><th>Имя</th><th>Фамилия</th><th>Отчество</th>
+      </tr>
+      <tbody id="alex">
+      {% for employee in gov_employee_list %}
+        <tr>
+          <td>{{ employee.id }}</td>
+          <td>{{ employee.last_name }}</td>
+          <td>{{ employee.first_name }}</td>
+          <td>{{ employee.surname }}</td>
+        </tr>
+      {% endfor %}
+      </tbody>
+    </table>
+</Main>
+{% endblock %}
